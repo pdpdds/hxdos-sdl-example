@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: gomoku - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\juhan\AppData\Local\Temp\RSPE26B.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "..\thirdparty\SDL-1.2.15\include" /I "..\thirdparty\SDL_image-1.2.12\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\project\VS6\gomoku\Board.cpp"
+"D:\project\VS6\gomoku\BoardControl.cpp"
+"D:\project\VS6\gomoku\BoardView.cpp"
+"D:\project\VS6\gomoku\main.cpp"
+]
+Creating command line "cl.exe @C:\Users\juhan\AppData\Local\Temp\RSPE26B.tmp" 
+Creating temporary file "C:\Users\juhan\AppData\Local\Temp\RSPE26C.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "..\thirdparty\SDL-1.2.15\include" /I "..\thirdparty\SDL_image-1.2.12\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/gomoku.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\project\VS6\gomoku\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\juhan\AppData\Local\Temp\RSPE26C.tmp" 
+Creating temporary file "C:\Users\juhan\AppData\Local\Temp\RSPE26D.tmp" with contents
+[
+sdl.lib SDLimage.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/gomoku.pdb" /machine:I386 /out:"Release/gomoku.exe" /libpath:"..\thirdparty\SDL-1.2.15\lib\x86" /libpath:"..\thirdparty\SDL_image-1.2.12\lib\x86" 
+.\Release\Board.obj
+.\Release\BoardControl.obj
+.\Release\BoardView.obj
+.\Release\main.obj
+.\Release\StdAfx.obj
+]
+Creating command line "link.exe @C:\Users\juhan\AppData\Local\Temp\RSPE26D.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Board.cpp
+BoardControl.cpp
+BoardView.cpp
+main.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+gomoku.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: tiled - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\juhan\AppData\Local\Temp\RSPBDFA.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "..\thirdparty\SDL-1.2.15\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\project\VS6\tiled\cmdline.c"
+"D:\project\VS6\tiled\encoding.c"
+"D:\project\VS6\tiled\err.c"
+"D:\project\VS6\tiled\fileio.c"
+"D:\project\VS6\tiled\help.c"
+"D:\project\VS6\tiled\lxlogic.c"
+"D:\project\VS6\tiled\messages.c"
+"D:\project\VS6\tiled\mslogic.c"
+"D:\project\VS6\tiled\play.c"
+"D:\project\VS6\tiled\random.c"
+"D:\project\VS6\tiled\res.c"
+"D:\project\VS6\tiled\score.c"
+"D:\project\VS6\tiled\series.c"
+"D:\project\VS6\tiled\solution.c"
+"D:\project\VS6\tiled\tworld.c"
+"D:\project\VS6\tiled\unslist.c"
+"D:\project\VS6\tiled\oshw-sdl\ccicon.c"
+"D:\project\VS6\tiled\oshw-sdl\sdlerr.c"
+"D:\project\VS6\tiled\oshw-sdl\sdlin.c"
+"D:\project\VS6\tiled\oshw-sdl\sdloshw.c"
+"D:\project\VS6\tiled\oshw-sdl\sdlout.c"
+"D:\project\VS6\tiled\oshw-sdl\sdlsfx.c"
+"D:\project\VS6\tiled\oshw-sdl\sdltext.c"
+"D:\project\VS6\tiled\oshw-sdl\sdltile.c"
+"D:\project\VS6\tiled\oshw-sdl\sdltimer.c"
+]
+Creating command line "cl.exe @C:\Users\juhan\AppData\Local\Temp\RSPBDFA.tmp" 
+Creating temporary file "C:\Users\juhan\AppData\Local\Temp\RSPBDFB.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "..\thirdparty\SDL-1.2.15\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Release/tiled.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\project\VS6\tiled\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\juhan\AppData\Local\Temp\RSPBDFB.tmp" 
+Creating temporary file "C:\Users\juhan\AppData\Local\Temp\RSPBDFC.tmp" with contents
+[
+sdl.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Release/tiled.pdb" /machine:I386 /out:"Release/tiled.exe" /libpath:"..\thirdparty\SDL-1.2.15\lib\x86" 
+.\Release\cmdline.obj
+.\Release\encoding.obj
+.\Release\err.obj
+.\Release\fileio.obj
+.\Release\help.obj
+.\Release\lxlogic.obj
+.\Release\messages.obj
+.\Release\mslogic.obj
+.\Release\play.obj
+.\Release\random.obj
+.\Release\res.obj
+.\Release\score.obj
+.\Release\series.obj
+.\Release\solution.obj
+.\Release\StdAfx.obj
+.\Release\tworld.obj
+.\Release\unslist.obj
+.\Release\ccicon.obj
+.\Release\sdlerr.obj
+.\Release\sdlin.obj
+.\Release\sdloshw.obj
+.\Release\sdlout.obj
+.\Release\sdlsfx.obj
+.\Release\sdltext.obj
+.\Release\sdltile.obj
+.\Release\sdltimer.obj
+]
+Creating command line "link.exe @C:\Users\juhan\AppData\Local\Temp\RSPBDFC.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+cmdline.c
+encoding.c
+err.c
+fileio.c
+D:\project\VS6\tiled\fileio.c(424) : warning C4013: 'mkdir' undefined; assuming extern returning int
+help.c
+lxlogic.c
+messages.c
+mslogic.c
+play.c
+D:\project\VS6\tiled\play.c(290) : warning C4018: '>' : signed/unsigned mismatch
+D:\project\VS6\tiled\play.c(293) : warning C4018: '==' : signed/unsigned mismatch
+random.c
+res.c
+score.c
+D:\project\VS6\tiled\score.c(28) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+D:\project\VS6\tiled\score.c(54) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+series.c
+solution.c
+D:\project\VS6\tiled\solution.c(407) : warning C4244: '=' : conversion from 'const unsigned long ' to 'unsigned char ', possible loss of data
+D:\project\VS6\tiled\solution.c(409) : warning C4244: '=' : conversion from 'unsigned long ' to 'unsigned char ', possible loss of data
+D:\project\VS6\tiled\solution.c(410) : warning C4244: '=' : conversion from 'unsigned long ' to 'unsigned char ', possible loss of data
+D:\project\VS6\tiled\solution.c(411) : warning C4244: '=' : conversion from 'unsigned long ' to 'unsigned char ', possible loss of data
+D:\project\VS6\tiled\solution.c(412) : warning C4244: '=' : conversion from 'unsigned long ' to 'unsigned char ', possible loss of data
+D:\project\VS6\tiled\solution.c(882) : warning C4090: 'function' : different 'const' qualifiers
+D:\project\VS6\tiled\solution.c(882) : warning C4022: 'free' : pointer mismatch for actual parameter 1
+tworld.c
+D:\project\VS6\tiled\tworld.c(693) : warning C4305: 'function' : truncation from 'int ' to 'char '
+unslist.c
+ccicon.c
+sdlerr.c
+sdlin.c
+sdloshw.c
+Generating Code...
+D:\project\VS6\tiled\solution.c(269) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\solution.c(269) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\solution.c(269) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\solution.c(548) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\solution.c(716) : warning C4761: integral size mismatch in argument; conversion supplied
+Compiling...
+sdlout.c
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(394) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(398) : warning C4305: '=' : truncation from 'int ' to 'char '
+sdlsfx.c
+D:\project\VS6\tiled\oshw-sdl\sdlsfx.c(250) : warning C4244: '=' : conversion from 'double ' to 'unsigned __int32 ', possible loss of data
+sdltext.c
+sdltile.c
+sdltimer.c
+Generating Code...
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(96) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(96) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(96) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(97) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(97) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(97) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(100) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(100) : warning C4761: integral size mismatch in argument; conversion supplied
+D:\project\VS6\tiled\oshw-sdl\sdlout.c(100) : warning C4761: integral size mismatch in argument; conversion supplied
+Linking...
+
+
+
+<h3>Results</h3>
+tiled.exe - 0 error(s), 30 warning(s)
+</pre>
+</body>
+</html>

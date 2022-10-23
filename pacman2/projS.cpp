@@ -6,9 +6,11 @@
 //#include <SDL_ttf.h>
 //#include <SDL_mixer.h>
 
+
+
 /* Constants */
-const int WINDOW_WIDTH = 500;
-const int WINDOW_HEIGHT = 600; //575
+const int WINDOW_WIDTH = 320;
+const int WINDOW_HEIGHT = 200; //575
 const char *CAPTION = "CSCI X070 - projS - jiva";
 const char *IMG_bg = "data/back2.bmp";
 const char *IMG_pacman_up = "data/pacman-U.bmp";
@@ -100,16 +102,22 @@ void init_clerical()
     /* Initialize SDL */
     if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER) < 0)
 	{
-		fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());
 		exit(1);
     }
     atexit(SDL_Quit);
 
     /* Set resolution and bit depth */
-    sur_screen = SDL_SetVideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 0, SDL_HWSURFACE | SDL_DOUBLEBUF);
+	DWORD flag = SDL_HWSURFACE | SDL_DOUBLEBUF;
+
+#if !defined(_DEBUG)
+	flag |= SDL_SWSURFACE | SDL_FULLSCREEN;
+
+#endif
+    sur_screen = SDL_SetVideoMode(WINDOW_WIDTH, WINDOW_HEIGHT, 0, flag);
 	if(sur_screen == NULL)
 	{
-		fprintf(stderr, "Unable to set resolution and bit depth: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to set resolution and bit depth: %s\n", SDL_GetError());
 		exit(1);
 	}
 
@@ -117,67 +125,67 @@ void init_clerical()
 	sur_bg = SDL_LoadBMP(IMG_bg);
 	if(sur_bg == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_pacman_up = SDL_LoadBMP(IMG_pacman_up);
 	if(sur_pacman_up == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_pacman_down = SDL_LoadBMP(IMG_pacman_down);
 	if(sur_pacman_down == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_pacman_left = SDL_LoadBMP(IMG_pacman_left);
 	if(sur_pacman_left == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_pacman_right = SDL_LoadBMP(IMG_pacman_right);
 	if(sur_pacman_right == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_small_yummy = SDL_LoadBMP(IMG_small_yummy);
 	if(sur_small_yummy == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_big_yummy = SDL_LoadBMP(IMG_big_yummy);
 	if(sur_big_yummy == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_redg = SDL_LoadBMP(IMG_redg);
 	if(sur_redg == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_pinkg = SDL_LoadBMP(IMG_pinkg);
 	if(sur_pinkg == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_cyang = SDL_LoadBMP(IMG_cyang);
 	if(sur_cyang == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 	sur_vulng = SDL_LoadBMP(IMG_vulng);
 	if(sur_vulng == NULL)
 	{
-		fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+		//fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
 		exit(1);
 	}
 
@@ -203,11 +211,11 @@ void init_clerical()
 //	}
 
 	/* SDL Mixer */
-	if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
-	{
-		fprintf(stderr, "Unable to initialize SDL: %s\n", SDL_GetError());
-		exit(1);
-	}
+	//if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
+	//{
+		//fprintf(stderr, "Unable to initialize SDL: %s\n", SDL_GetError());
+	//	exit(1);
+	//}
 	/*int audio_rate = 22050;
 	Uint16 audio_format = AUDIO_S16SYS;
 	int audio_channels = 2;
@@ -250,7 +258,7 @@ void init_clerical()
 void init_game()
 {
 	/* Seed the random number generator */
-	srand(time(NULL));
+	srand(rand());
 
 	/* Draw background */
 	draw(sur_bg, 0, 0, 3);
@@ -331,7 +339,8 @@ void init_game()
 	int shift = 17;
 	int c = 0;
 	int x = 0;
-	for(int i = 0; i < 26; i++)
+	int i = 0;
+	for(i = 0; i < 26; i++)
 	{
 		syummy[i].x = shift*c+35;
 		syummy[i].y = 500;
@@ -346,6 +355,10 @@ void init_game()
 		syummy[i].h = 1; //displayed 1 or not displayed 0
 		c++;
 	}
+	
+	/// <summary>
+	/// error
+	/// </summary>
 	c = 0;
 	for( i = 52; i < 64; i++)
 	{
@@ -354,6 +367,7 @@ void init_game()
 		syummy[i].h = 1; //displayed 1 or not displayed 0
 		c++;
 	}
+	
 	c = 0;
 	for( i = 64; i < 76; i++)
 	{
@@ -362,6 +376,7 @@ void init_game()
 		syummy[i].h = 1; //displayed 1 or not displayed 0
 		c++;
 	}
+	
 	c = 0;
 	for( i = 76; i < 88; i++)
 	{
@@ -394,6 +409,7 @@ void init_game()
 		syummy[i].h = 1; //displayed 1 or not displayed 0
 		c++;
 	}
+	
 	c = 0;
 	x = 118;
 	for( i = 0; i < 26; i++)
@@ -974,7 +990,8 @@ bool cd(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2)
 /* Check if there was a collision between a ghost and a yummy, if so, mark yummy for redraw */
 void cdyummy(int ghostnum)
 {
-	for(int i = 0; i < syum; i++)
+	int i = 0;
+	for(i = 0; i < syum; i++)
 	{
 		if(syummy[i].h != 2 && cd(ghosts[ghostnum].x, ghosts[ghostnum].y, 30, 30, syummy[i].x, syummy[i].y, 3, 3))
 		{
@@ -993,7 +1010,8 @@ void cdyummy(int ghostnum)
 /* Fixes the yummies that were run over by ghosts */
 void yummyfix()
 {
-	for(int i = 0; i < syum; i++)
+	int i = 0;
+	for(i = 0; i < syum; i++)
 	{
 		if(syummy[i].h == 0)
 		{
@@ -1060,7 +1078,7 @@ int getranddir(int ghostnum, int nodir)
 	
 	bool left=true, right=true, up=true, down=true;
 	
-	srand(time(NULL));
+	srand(rand());
 	
 	switch(oppdir(ghosts[ghostnum].h))
 	{
@@ -1157,7 +1175,7 @@ int getranddir(int ghostnum, int nodir)
 /* Returns a random adjacent direction */
 int adjdir(int dir)
 {
-	srand(time(NULL));
+	srand(rand());
 	
 	if(dir == L)
 	{
@@ -1215,7 +1233,7 @@ Uint32 moveghosts()
 		return 0;
 	}
 	int j = 0;
-	srand(time(NULL));
+	srand(rand());
 	bool good = true;
 	for(int i = 0; i < 3; i++)
 	{
@@ -1593,6 +1611,7 @@ void drawg(int ghostnum)
 /* Move Pacman */
 Uint32 move()
 {
+	int i = 0;
 	Uint32 interval = 5;
 	if(killed)
 	{
@@ -1603,7 +1622,7 @@ Uint32 move()
 	{
 		case L:
 			{
-			for(int i = 0; i < 41; i++)
+			for(i = 0; i < 41; i++)
 			{
 				if(cd(pacman.x-pacvelocity, pacman.y, pacman.w, pacman.h, barriers[i].x, barriers[i].y, barriers[i].w, barriers[i].h))
 				{
@@ -2129,6 +2148,7 @@ Uint32 time_left(void)
 /* The main game loop */
 void game()
 {
+	
 	/* Show status */
 	updatestatus(0);
 	
@@ -2243,6 +2263,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	init_game();
 	int chan = playsound(1, 0);
 //	while(Mix_Playing(chan) != 0);
+
+	
 	while(true)
 	{
 		game();

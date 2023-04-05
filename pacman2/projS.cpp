@@ -7,10 +7,9 @@
 //#include <SDL_mixer.h>
 
 
-
 /* Constants */
-const int WINDOW_WIDTH = 320;
-const int WINDOW_HEIGHT = 200; //575
+const int WINDOW_WIDTH = 500;
+const int WINDOW_HEIGHT = 575;
 const char *CAPTION = "CSCI X070 - projS - jiva";
 const char *IMG_bg = "data/back2.bmp";
 const char *IMG_pacman_up = "data/pacman-U.bmp";

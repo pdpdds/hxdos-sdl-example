@@ -14,8 +14,12 @@ int APIENTRY WinMain(HINSTANCE hInstance,
     //===========================================================================//
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_Surface *screen;
+
+#ifdef _DEBUG
+	screen = SDL_SetVideoMode(800, 600, 32, SDL_SWSURFACE);
+#else
 	screen = SDL_SetVideoMode(800, 600, 32, SDL_SWSURFACE | SDL_FULLSCREEN);
-	//screen = SDL_SetVideoMode(800, 600, 32, SDL_SWSURFACE);
+#endif
 
 	const int FPS = 30;
 	Uint32 start;

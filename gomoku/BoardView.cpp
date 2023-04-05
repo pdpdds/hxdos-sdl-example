@@ -76,7 +76,11 @@ static bool init()
 	}
 
 	//Set up the screen
+#ifdef _DEBUG
 	screen = SDL_SetVideoMode( SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE );
+#else
+	screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE | SDL_FULLSCREEN);
+#endif
 
 	//If there was an error in setting up the screen
 	if( screen == NULL )
